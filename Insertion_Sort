@@ -1,0 +1,11 @@
+MyArray = [4,13,2,5,6]
+max = 5
+for pointer in range(1, max):
+    ItemToInsert = MyArray[pointer]
+    CurrentItem = pointer
+    while CurrentItem>0  and MyArray[CurrentItem-1]>ItemToInsert:
+        MyArray[CurrentItem] = MyArray[CurrentItem-1]
+        CurrentItem = CurrentItem - 1
+    MyArray[CurrentItem]= ItemToInsert
+
+print(MyArray)
