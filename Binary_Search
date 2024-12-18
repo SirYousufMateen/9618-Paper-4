@@ -1,0 +1,22 @@
+arrayData = [21,31,43,48,49,50,61,63,74,81]
+searchvalue = int(input("Enter a value you want to search"))
+
+found = False
+low = 0
+high = 9
+mid = (low + high)//2
+while found == False and low <= high:
+    if searchvalue == arrayData[mid]:
+        found = True
+    elif searchvalue >arrayData[mid]:
+        low = mid + 1
+    else:
+        high = mid - 1
+    mid = (low + high) // 2
+
+if found:
+    print("Value found")
+else:
+    print("Value not found")
+
+
