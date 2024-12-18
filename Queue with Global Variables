@@ -1,0 +1,57 @@
+global MyList
+global Soq,EoQ
+global Size
+
+MyList = [0 for count in range(8)]
+Soq = 0
+EoQ = -1
+Size = 0
+
+def Enqueue(value):
+    global MyList
+    global Soq, EoQ
+    global Size
+    if Size == 8:
+        print("Queue is full")
+    elif Size<8 and EoQ == 7:
+        EoQ =0
+        MyList[EoQ] = value
+        Size += 1
+    else:
+        EoQ += 1
+        MyList[EoQ]= value
+        Size +=1
+        print("Added")
+
+def Dequeue():
+    global MyList
+    global Soq, EoQ
+    global Size
+    if Soq>EoQ:
+        print("Queue is empty")
+    else:
+        MyList[Soq] = 0
+        Soq += 1
+        Size-=1
+
+Enqueue(1)
+Enqueue(2)
+Enqueue(3)
+Enqueue(4)
+Enqueue(5)
+Enqueue(6)
+Enqueue(7)
+Enqueue(8)
+print(MyList)
+print("Size of Queue is",Size)
+
+
+Dequeue()
+Dequeue()
+Dequeue()
+
+print(MyList)
+print("Size of Queue is",Size)
+
+Enqueue(71)
+print(MyList)
