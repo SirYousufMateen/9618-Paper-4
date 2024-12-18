@@ -1,0 +1,50 @@
+global MyData
+global Start
+global End
+global Size
+MyData = [0 for count in range(5)]
+Start = 0
+End = 0
+Size = 0
+
+def Enqueue(item):
+    global MyData
+    global Start
+    global End
+    global Size
+    if Size == 5:
+        print("Queue is full")
+    elif Size < 5 and End == 5:
+        End = 0
+        MyData[End] = item
+        End +=1
+        Size +=1
+    else:
+        MyData[End] = item
+        End += 1
+        Size += 1
+def Dequeue():
+    global MyData
+    global Start
+    global End
+    global Size
+    if Size ==0:
+        print("Queue is empty")
+    else:
+        MyData[Start]=0
+        Start +=1
+        Size -=1
+
+for count in range(5):
+    Enqueue(5)
+
+print(MyData)
+Dequeue()
+Dequeue()
+Dequeue()
+
+print(MyData)
+Enqueue(5)
+
+print(MyData)
+
