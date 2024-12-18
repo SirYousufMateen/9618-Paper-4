@@ -1,0 +1,8 @@
+def factorial(Num):
+    if Num == 0 :
+        answer = 1
+    else:
+        answer = Num * factorial(Num-1)
+    return answer
+
+print(factorial(5))
