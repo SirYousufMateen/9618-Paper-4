@@ -1,0 +1,18 @@
+MyList = [4,6,7,2,1]
+Boundary = 4
+print("Before Sorting")
+print(MyList)
+
+swap = True
+while swap == True:
+    swap = False
+    for index in range(0,Boundary):
+        if MyList[index]> MyList[index+1]:
+            temp = MyList[index+1]
+            MyList[index+1] = MyList[index]
+            MyList[index] = temp
+            swap = True
+    Boundary -=1
+
+print("After Sorting")
+print(MyList)
