@@ -1,0 +1,31 @@
+ArrayNode = []
+for x in range(0,20):
+    ArrayNode.append([-1,-1,-1])
+
+ArrayNode = [[1,20,5],[2,15,-1],[-1,3,3],[-1,9,4],[1,10,-1],[-1,58,-1]]
+FreeNode = 6
+RootPointer = 0
+
+
+#Searching in Binary Tree
+def SearchValue(Root, ValueToFind):
+    global ArrayNode
+    if Root == -1:
+        return -1
+    elif ArrayNode[Root][1] == ValueToFind:
+        return Root
+    elif ArrayNode[Root][1] == -1:
+        return -1
+    if (ArrayNode[Root][1]>ValueToFind):
+        return SearchValue(ArrayNode[Root][0], ValueToFind)
+    if (ArrayNode[Root][1]<ValueToFind):
+        return SearchValue(ArrayNode[Root][2],ValueToFind)
+
+
+Search = int(input("Enter a value you want to search"))
+Returnvalue = SearchValue(RootPointer,Search)
+if Returnvalue == -1:
+    print("Not Found")
+else:
+    print("Found at" + str(Returnvalue))
+
