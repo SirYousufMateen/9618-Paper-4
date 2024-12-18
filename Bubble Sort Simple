@@ -1,0 +1,23 @@
+Mylist = [5,4,3,2,1]
+print(Mylist)
+
+#Ascending Order
+for count in range(4):
+    for index in range(4):
+        if Mylist[index]>Mylist[index+1]:
+            temp = Mylist[index]
+            Mylist[index]= Mylist[index+1]
+            Mylist[index+1]= temp
+
+print(Mylist)
+
+#Descending Order
+for count in range(4):
+    for index in range(4):
+        if Mylist[index]<Mylist[index+1]:
+            temp = Mylist[index]
+            Mylist[index]= Mylist[index+1]
+            Mylist[index+1]= temp
+
+print(Mylist)
+
