@@ -1,0 +1,19 @@
+MyData = [0 for count in range (10)]
+
+for count in range(10):
+    num = int(input("Enter any number"))
+    MyData[count] = num
+search = int(input("Enter number you want to search"))
+count = 0
+found = False
+
+while count <10 and found ==False:
+    if MyData[count] == search:
+        found = True
+    count +=1
+
+if found:
+    print("Value found")
+else:
+    print("Value not found")
+
