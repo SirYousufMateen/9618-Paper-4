@@ -1,0 +1,33 @@
+global MyList
+global Top
+
+MyList = [0 for count in range(10)]
+Top = -1
+
+def Push(value):
+    global Top
+    global MyList
+    if Top == 10:
+        print("Stack is overflow")
+    else:
+        Top +=1
+        MyList[Top]=value
+
+def Pop():
+    global Top
+    global MyList
+    if Top <0:
+        print("Stack is underflow")
+    else:
+        value = MyList[Top]
+        Top -=1
+        print(value)
+
+print(MyList)
+Push(4)
+Push(8)
+Push(9)
+print(MyList)
+Pop()
+Push(44)
+print(MyList)
