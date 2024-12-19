@@ -1,0 +1,15 @@
+file = open("FirstFileProgram.txt", "w")
+
+for count in range(10):
+    Mydata = input("Enter student name")
+    file.write(Mydata)
+    file.write("\n")
+
+
+MyArray = ["" for count in range(10)]
+file = open("FirstFileProgram.txt","r")
+for count in range(10):
+    FileData = file.readline().strip()
+    MyArray[count]=FileData
+
+print(MyArray)
