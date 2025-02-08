@@ -1,0 +1,19 @@
+Flower = ["Rose", "Lily", "Tulip", "Daisy"]
+NextPointer = [1, 2, 3, -1]
+HeadPointer = 0
+
+pointer = HeadPointer
+found = -1
+
+flower_name = input("Enter a flower name: ")
+while pointer != -1:
+    if Flower[pointer] == flower_name:
+        found = pointer
+        pointer = -1  # Exit the loop
+    else:
+        pointer = NextPointer[pointer]
+
+if found != -1:
+    print(f"{Flower[found]} is found")
+else:
+    print("The flower you wanted is not in the list")
