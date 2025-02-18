@@ -1,0 +1,69 @@
+Complete question of Searching and Adding node in Binary Tree. 
+ArrayNode = []
+ArrayNode = [[1,20,5],[2,15,-1],[-1,3,3],[-1,9,4],[1,10,-1],[-1,58,-1]]
+for x in range(6,20):
+    ArrayNode.append([-1,-1,-1])
+
+FreeNode = 6
+RootPointer = 0
+
+#Searching in Binary Tree
+def SearchValue(Root, ValueToFind):
+    global ArrayNode
+    if Root == -1:
+        return -1
+    elif ArrayNode[Root][1] == ValueToFind:
+        return Root
+    elif ArrayNode[Root][1] == -1:
+        return -1
+    if (ArrayNode[Root][1]>ValueToFind):
+        return SearchValue(ArrayNode[Root][0], ValueToFind)
+    if (ArrayNode[Root][1]<ValueToFind):
+        return SearchValue(ArrayNode[Root][2],ValueToFind)
+
+def AddNode(ArrayNodes, RootPointer, FreeNode):
+    NodeData = int(input("Enter the Data: "))
+    if FreeNode <= 19:
+        ArrayNodes[FreeNode][0] = -1
+        ArrayNodes[FreeNode][1] = NodeData
+        ArrayNodes[FreeNode][2] = -1
+        if RootPointer == -1: # Add to start
+            RootPointer = 0
+        else:
+            Placed = False
+            CurrentNode = RootPointer
+            while Placed == False:
+                if NodeData < ArrayNodes[CurrentNode][1]:
+                    if ArrayNodes[CurrentNode][0] == -1:
+                        ArrayNodes[CurrentNode][0] = FreeNode
+                        Placed = True
+                    else:
+                        CurrentNode = ArrayNodes[CurrentNode][0]
+                else:
+                    if ArrayNodes[CurrentNode][2] == -1:
+                        ArrayNodes[CurrentNode][2] = FreeNode
+                        Placed = True
+                    else:
+                        CurrentNode = ArrayNodes[CurrentNode][2]
+        FreeNode = FreeNode + 1
+    else:
+        print("Tree is full")
+    return ArrayNodes, RootPointer, FreeNode
+
+def PrintAll(ArrayNodes):
+    for X in range(0, 20):
+        print(str(ArrayNodes[X][0]), " ", str(ArrayNodes[X][1]), " ",
+              str(ArrayNodes[X][2]))
+
+Search = int(input("Enter a value you want to search"))
+Returnvalue = SearchValue(RootPointer,Search)
+if Returnvalue == -1:
+    print("Not Found")
+else:
+    print("Found at" + str(Returnvalue))
+
+for X in range(0 ,3):
+    ArrayNode, RootPointer, FreeNode = AddNode(ArrayNode ,RootPointer ,FreeNode)
+
+
+PrintAll(ArrayNode)
