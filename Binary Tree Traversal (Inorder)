@@ -1,3 +1,4 @@
+#Inorder Binary Tree Traversal
 def InOrder(ArrayNodes, RootNode):
     if ArrayNodes[RootNode][0] != -1:
         InOrder(ArrayNodes, ArrayNodes[RootNode][0])
@@ -7,4 +8,31 @@ def InOrder(ArrayNodes, RootNode):
 
 ArrayNodes = [[1, 11, 2],[3, 2, 4],[-1, 13, -1],[-1, 1, -1],[-1, 5, -1]]
 RootPointer = 0
+print("#Inorder Binary Tree Traversal")
 InOrder(ArrayNodes, RootPointer)
+
+#Preorder Binary Tree Traversal
+def PreOrder(ArrayNodes, RootNode):
+    print(str(ArrayNodes[RootNode][1]))
+    if ArrayNodes[RootNode][0] != -1:
+        PreOrder(ArrayNodes, ArrayNodes[RootNode][0])
+    if ArrayNodes[RootNode][2] != -1:
+        PreOrder(ArrayNodes, ArrayNodes[RootNode][2])
+
+ArrayNodes = [[1, 11, 2],[3, 2, 4],[-1, 13, -1],[-1, 1, -1],[-1, 5, -1]]
+RootPointer = 0
+print("#Preorder Binary Tree Traversal")
+PreOrder(ArrayNodes,RootPointer)
+
+#Postorder Binary Tree Traversal
+def PostOrder(ArrayNodes, RootNode):
+    if ArrayNodes[RootNode][0] != -1:
+        PostOrder(ArrayNodes, ArrayNodes[RootNode][0])
+    if ArrayNodes[RootNode][2] != -1:
+        PostOrder(ArrayNodes, ArrayNodes[RootNode][2])
+    print(str(ArrayNodes[RootNode][1]))
+
+ArrayNodes = [[1, 11, 2],[3, 2, 4],[-1, 13, -1],[-1, 1, -1],[-1, 5, -1]]
+RootPointer = 0
+print("#Postorder Binary Tree Traversal")
+PostOrder(ArrayNodes,RootPointer)
