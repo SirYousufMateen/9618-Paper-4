@@ -1,33 +1,26 @@
-global MyList
-global Top
-
 MyList = [0 for count in range(10)]
 Top = -1
 
-def Push(value):
+def Push(item):
     global Top
-    global MyList
-    if Top == 10:
-        print("Stack is overflow")
+    if Top == 9:
+        print("Stack overflow ")
     else:
-        Top +=1
-        MyList[Top]=value
+        Top = Top + 1
+        MyList[Top] = item
 
 def Pop():
     global Top
-    global MyList
     if Top <0:
-        print("Stack is underflow")
+        print("Stack is empty")
     else:
-        value = MyList[Top]
-        Top -=1
-        print(value)
+        MyList[Top] = 0
+        Top = Top - 1
+
+for count in range(10):
+    Push(4)
 
 print(MyList)
-Push(4)
-Push(8)
-Push(9)
-print(MyList)
-Pop()
-Push(44)
+for count in range(11):
+    Pop()
 print(MyList)
