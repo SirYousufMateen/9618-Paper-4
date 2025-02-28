@@ -1,0 +1,52 @@
+Jobs = []
+NumberOfJobs = None
+
+
+def Initialise():
+    global Jobs
+    global NumberOfJobs
+    for count in range(100):
+        Jobs.append([-1,-1])
+    NumberOfJobs = 0
+
+Initialise()
+print(Jobs)
+
+def AddJob(Jobnum, Priority):
+    global NumberOfJobs
+    global Jobs
+    if NumberOfJobs == 100:
+        print("Not Added")
+    else:
+        Jobs[NumberOfJobs] = [Jobnum,Priority]
+        NumberOfJobs = NumberOfJobs + 1
+        print("Added")
+AddJob(12,10)
+AddJob(526,9)
+AddJob(33,8)
+AddJob(12,9)
+AddJob(78,1)
+
+print(Jobs)
+
+def InsertionSort():
+    global NumberOfJobs
+    global Jobs
+    for pointer in range(1, NumberOfJobs):
+        CurrentItem1 = Jobs[pointer][0]
+        CurrentItem2 = Jobs[pointer][1]
+        while pointer>0  and Jobs[pointer-1][1]>CurrentItem2:
+            Jobs[pointer][0] = Jobs[pointer-1][0]
+            Jobs[pointer][1] = Jobs[pointer-1][1]
+            pointer = pointer - 1
+        Jobs[pointer][0]= CurrentItem1
+        Jobs[pointer][1] = CurrentItem2
+
+InsertionSort()
+print(Jobs)
+
+def PrintArray():
+    for count in range(NumberOfJobs):
+        print(Jobs[count][0],"priority",Jobs[count][1])
+        
+PrintArray()
