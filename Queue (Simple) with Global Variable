@@ -1,0 +1,28 @@
+MyList = [0 for count in range(10)]
+Soq = 0
+Eoq = -1
+
+print(MyList)
+def Enqueue(item):
+    global Eoq
+    if Eoq == 9:
+        print("Queue is full")
+    else:
+        Eoq = Eoq + 1
+        MyList[Eoq] = item
+
+for count in range(10):
+    Enqueue(4)
+def Dequeue():
+    global Soq
+    if Soq>Eoq:
+        print("Queue is empty")
+    else:
+        print(MyList[Soq])
+        MyList[Soq] = 0
+        Soq = Soq + 1
+
+print(MyList)
+Dequeue()
+Dequeue()
+print(MyList)
