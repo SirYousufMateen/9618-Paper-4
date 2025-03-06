@@ -1,0 +1,43 @@
+QueueArray = ["" for count in range(10)]
+HeadPointer = 0
+TailPointer = 0
+NumberofItems = 0
+
+def Enqueue(QueueArray, HeadPointer,TailPointer,NumberofItems,DataToAdd):
+    if NumberofItems == 10:
+        return False,QueueArray, HeadPointer,TailPointer,NumberofItems
+    QueueArray[TailPointer]= DataToAdd
+    if TailPointer == 9:
+        TailPointer = 0
+    else:
+        TailPointer = TailPointer + 1
+    NumberofItems = NumberofItems + 1
+    return True,QueueArray, HeadPointer,TailPointer,NumberofItems
+
+for count in range(11):
+    returnvalue,QueueArray, HeadPointer,TailPointer,NumberofItems = Enqueue(QueueArray, HeadPointer,TailPointer,NumberofItems,'A')
+    print(returnvalue)
+
+def Dequeue(Queue, Head, Tail, NumItems):
+   if NumItems == 0:
+      return (False, Queue, Head, Tail, NumItems)
+   else:
+      ReturnValue = Queue[Head]
+      Head = Head + 1
+      if Head > 9:
+         Head = 0
+      NumItems = NumItems - 1
+      return(ReturnValue, Queue, Head, Tail, NumItems)
+
+
+print(QueueArray)
+
+returnvalue,QueueArray, HeadPointer,TailPointer,NumberofItems = Dequeue(QueueArray, HeadPointer,TailPointer,NumberofItems)
+print(returnvalue)
+
+returnvalue,QueueArray, HeadPointer,TailPointer,NumberofItems = Dequeue(QueueArray, HeadPointer,TailPointer,NumberofItems)
+print(returnvalue)
+
+
+returnvalue,QueueArray, HeadPointer,TailPointer,NumberofItems = Enqueue(QueueArray, HeadPointer,TailPointer,NumberofItems,'B')
+print(QueueArray)
